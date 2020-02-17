@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
   {
     if (this.username == "Admin" && this.password == "admin123")
     {
-      console.log("Welcome....")
+      console.log("Welcome...." + this.username )
+    } else {
+      alert("Usuário ou Senha incorretas....")
     }
   }
 }
