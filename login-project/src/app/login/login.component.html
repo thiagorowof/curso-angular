@@ -5,13 +5,17 @@
 
 <div class="wrapper fadeInDown">
   <div id="formContent">
+    <p>
     <div class="fadeIn first">
-      <img src="assets/login.png" id="icon" alt="Icone do Usuário" />
+      <img src="assets/login.png" alt="Icone do Usuário"/>
     </div>
     <form>
-      <input type="text" id="login" class="fadeIn second" name="username" [(ngModel)] ='username' placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="password" [(ngModel)] ='password' placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In" (click)="logInUser()">
+      <input type="text" id="login" class="fadeIn second" name="username" [(ngModel)] ='username' placeholder="usuário">
+      <input *ngIf="username" type="text" id="password" class="fadeIn third" name="password" [(ngModel)] ='password' placeholder="senha">
+      <input *ngIf="password" type="submit" class="fadeIn fourth" value="Log In" (click)="logInUser()">
+      <p>
+      <div class="alert alert-{{status}}" role="alert">{{ msg }}</div>
     </form>
   </div>
 </div>
+

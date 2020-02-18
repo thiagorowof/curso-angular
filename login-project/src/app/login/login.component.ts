@@ -9,6 +9,8 @@ export class LoginComponent implements OnInit {
 
   username:string;
   password: string;
+  msg: string;
+  status: string;
 
   constructor() { }
 
@@ -17,13 +19,17 @@ export class LoginComponent implements OnInit {
 
   logInUser()
   {
-    if (this.username == "Admin" && this.password == "admin123")
+    if (this.username == "admin" && this.password == "admin")
     {
-      console.log("Welcome...." + this.username )
-      alert("Welcome...." + this.username )
+      // console.log("Welcome...." + this.username )
+      // alert("Welcome...." + this.username )
+      this.status = "success"
+      this.msg = "Usuário Validado!"
     } else {
-      alert("Usuário ou Senha incorretas....")
-      console.log("Welcome...." + this.username )
+      // alert("Usuário ou Senha incorretas....")
+      this.status = "danger"
+      this.msg = "Nome de usuário ou senha incorretos"
+      // console.log("Welcome...." + this.username )
     }
   }
 }
