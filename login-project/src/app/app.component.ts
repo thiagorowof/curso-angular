@@ -8,18 +8,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'login-project';
 
-  username:string;
-  password: string;
+  // username:string;
+  // password: string;
  
-  constructor() { }
+  // constructor() { }
 
-  logUser()
-  {
-    if (this.username == "Admin" && this.password == "admin123")
-    {
-      console.log("Welcome...." + this.username )
-    } else {
-      alert("Usuário ou Senha incorretas....")
-    }
-  }
+  // logUser()
+  // {
+  //   if (this.username == "Admin" && this.password == "admin123")
+  //   {
+  //     console.log("Welcome...." + this.username )
+  //   } else {
+  //     alert("Usuário ou Senha incorretas....")
+  //   }
+  // }
 }
