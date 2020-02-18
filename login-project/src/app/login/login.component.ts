@@ -17,9 +17,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logInUser()
-  {
-    if (this.username == "admin" && this.password == "admin")
+  logInUser(){
+    if (this.username.toLowerCase() == "admin" && this.password.toLowerCase() == "admin")
     {
       // console.log("Welcome...." + this.username )
       // alert("Welcome...." + this.username )
