@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,11 @@ export class LoginComponent implements OnInit {
   msg: string;
   status: string;
 
-  constructor() { }
+  constructor(public router: Router) {}
 
   ngOnInit(): void {
   }
+
 
   logInUser(){
     if (this.username.toLowerCase() == "admin" && this.password.toLowerCase() == "admin")
@@ -23,7 +25,10 @@ export class LoginComponent implements OnInit {
       // console.log("Welcome...." + this.username )
       // alert("Welcome...." + this.username )
       this.status = "success"
-      this.msg = "Usuário Validado!"
+      this.msg = "Usuário Validado! Redirecionando..."
+      // window.location.href = '/home';
+      // this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/home', { state: { username: this.username } });
     } else {
       // alert("Usuário ou Senha incorretas....")
       this.status = "danger"

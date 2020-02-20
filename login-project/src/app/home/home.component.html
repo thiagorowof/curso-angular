@@ -9,7 +9,7 @@
 <body>
   
 <div class="card">
-  <div class="card-header">Calculadora</div>
+  <div class="card-header">Calculadora - Usuário: {{username}} - <a href="/logout">[sair]</a></div>
   <div class="card-body">
 
     <div class="form-group d-flex flex-row">
@@ -28,6 +28,7 @@
     <h4>O resultado de {{numero1}} e {{numero2}} = {{resultado}} </h4>
   </div>
 </div>
-
 </body>
 </html>
+
+<router-outlet></router-outlet>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+username = "Falta importar de login"
 
-  public numero1:number;
+constructor(public activatedRoute: ActivatedRoute) {}
+
+public numero1:number;
 public numero2:number;
 public resultado:number;
 
@@ -29,7 +33,8 @@ dividir(){
   this.resultado = (this.numero1) / (this.numero2)
 }
 
-  ngOnInit(): void {
-  }
+ ngOnInit() {
+  console.log(this.activatedRoute.snapshot.params)
+}
 
 }

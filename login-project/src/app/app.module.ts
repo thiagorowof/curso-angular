@@ -21,7 +21,7 @@ import { LogoutComponent } from './logout/logout.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
