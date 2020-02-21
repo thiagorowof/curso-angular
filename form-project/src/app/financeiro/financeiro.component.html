@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 </head>
+
 <body>
   <form>
   <div class="card-header">Sistema de Cadastro de Alguma Coisa - <a routerLink="/login" routerLinkActive="active">[sair]</a></div>
@@ -14,76 +15,14 @@
       <div class="row">
         <div class="col-md-12">
           <ul class="nav nav-pills mx-3">
-            <li class="nav-item"> <a href="/cliente" class="active nav-link">Cliente</a> </li>
+            <li class="nav-item"><a routerLink="/cliente" class="nav-link" routerLinkActive="active">Cliente</a></li>
             <li class="nav-item"><a routerLink="/endereco" class="nav-link" routerLinkActive="active">Endereço</a></li>
-            <li class="nav-item"><a routerLink="/financeiro" class="nav-link" routerLinkActive="active">Financeiro</a></li>
+            <li class="nav-item"><a routerLink="/financeiro" class="active nav-link" routerLinkActive="active">Financeiro</a></li>
           </ul>
         </div>
       </div>
-    </div><br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="form-group"><label>Código:</label><input type="text" class="form-control" placeholder=""></div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group"><label>CNPJ/CPF:*</label><input type="text" class="form-control"></div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group"><label>Situação:</label><input type="text" class="form-control"></div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group"><label>Tipo:</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1 - Normal</option>
-              <option>2 - Ninja</option>
-              <option>3 - Awesome</option>
-            </select>
-          </div>
-        </div>
-        
-      </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="form-group"><label>Razão Social/Nome:*</label><input type="text" class="form-control"></div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group"><label>Nome Fantasia:*</label><input type="text" class="form-control"></div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="form-group"><label>CEP:</label><input type="text" class="form-control" placeholder=""></div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group"><label>Endereço:</label><input type="text" class="form-control"></div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group"><label>Número:</label><input type="number" class="form-control"></div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group"><label>Complemento:</label><input type="text" class="form-control"></div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="form-group"><label>Bairro:</label><input type="text" class="form-control"></div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group"><label>Cidade:</label><input type="text" class="form-control"></div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group"><label>UF:</label><input type="text" class="form-control"></div>
-        </div>
-      </div>
-    </div>
+    <br>
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -163,7 +102,7 @@
         <div class="col-md-2"><a class="btn btn-primary" href="#">Salvar</a></div>
         <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div>
         <div class="col-md-2"></div>
-        <div class="col-md-2"><a routerLink="/endereco" class="btn btn-primary" routerLinkActive="active">Próximo <i class="fa fa-fw fa-arrow-right"></i> </a></div>
+        <div class="col-md-2"><a routerLink="/endereco" class="btn btn-primary" routerLinkActive="active">Anterior <i class="fa fa-fw fa-arrow-left"></i> </a></div>
       </div>
     </div>
   </div>

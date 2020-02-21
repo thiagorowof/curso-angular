@@ -4,13 +4,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms'; // adicionado....
+import { FormsModule } from '@angular/forms';
+import { EnderecoComponent } from './endereco/endereco.component';
+import { FinanceiroComponent } from './financeiro/financeiro.component'; // adicionado....
 
 @NgModule({
   declarations: [
     AppComponent,
     ClienteComponent,
-    LoginComponent
+    LoginComponent,
+    EnderecoComponent,
+    FinanceiroComponent
   ],
   imports: [
     BrowserModule,

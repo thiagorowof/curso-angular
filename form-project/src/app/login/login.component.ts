@@ -22,10 +22,11 @@ export class LoginComponent implements OnInit {
   logInUser(){
     if (this.username.toLowerCase() == "admin" && this.password.toLowerCase() == "admin")
     {
-      this.router.navigateByUrl('/cliente');
+      // this.router.navigateByUrl('/cliente');
+      this.router.navigate(['cliente'], {state: {username: this.username}});
     } else {
       this.status = "danger"
-      this.msg = "Nome de usuário ou senha incorretos"
+      this.msg = "Nome de usuário ou senha incorretos..."
     }
   }
   
