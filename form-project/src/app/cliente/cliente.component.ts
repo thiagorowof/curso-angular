@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 // export class ClienteComponent implements OnInit {
   export class ClienteComponent {
 
-  username = "Falta importar de login"
-  
+  // username = "Falta importar de login"
+ 
 
   constructor() { }
   // constructor(public activatedRoute: Router) {

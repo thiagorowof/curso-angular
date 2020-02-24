@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms'; // adicionado...
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,27 +9,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
-  username:string = '';
-  password: string = '';
-  msg: string;
-  status: string;
 
   constructor(public router: Router) {}
 
-  ngOnInit(): void {
+  msg: string;
+  status: string;
 
-  }
+    userprofileForm = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
 
-  logInUser(){
-    if (this.username.toLowerCase() == "admin" && this.password.toLowerCase() == "admin")
+  onSubmit(){
+    if (this.userprofileForm.get('password').value.toLowerCase() == "admin" || this.userprofileForm.get('password').value.toLowerCase() == "admin")
     {
       // this.router.navigateByUrl('/cliente');
-      this.router.navigate(['cliente'], {state: {username: this.username}});
+      this.router.navigate(['cliente']);
     } else {
       this.status = "danger"
       this.msg = "Nome de usuário ou senha incorretos..."
     }
   }
   
+  ngOnInit(): void {
+
+  }  
 }
