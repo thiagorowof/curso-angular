@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
       this.status = "danger"
       this.msg = "Nome de usuário ou senha incorretos..."
     }
-  }
   
+  }
   ngOnInit(): void {
 
   }  
