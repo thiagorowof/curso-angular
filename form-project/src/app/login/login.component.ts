@@ -15,13 +15,13 @@ export class LoginComponent implements OnInit {
   msg: string;
   status: string;
 
-    userprofileForm = new FormGroup({
+    loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
 
   onSubmit(){
-    if (this.userprofileForm.get('password').value.toLowerCase() == "admin" || this.userprofileForm.get('password').value.toLowerCase() == "admin")
+    if (this.loginForm.get('password').value.toLowerCase() == "admin" || this.loginForm.get('password').value.toLowerCase() == "admin")
     {
       // this.router.navigateByUrl('/cliente');
       this.router.navigate(['cliente']);

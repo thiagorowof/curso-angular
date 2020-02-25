@@ -6,16 +6,12 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EnderecoComponent } from './endereco/endereco.component';
-import { FinanceiroComponent } from './financeiro/financeiro.component'; // adicionado....
 
 @NgModule({
   declarations: [
     AppComponent,
     ClienteComponent,
-    LoginComponent,
-    EnderecoComponent,
-    FinanceiroComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -9,18 +9,19 @@
 </head>
 
 <body>
-  <form>
+  <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
     <div class="card-header">Sistema de Cadastro de Alguma Coisa - <a routerLink="/login"
-        routerLinkActive="active">[sair]</a></div>
-    <div class="py-5">
+        routerLinkActive="active">[sair]</a>
+        </div>
+    <div class="py-5" *ngIf="editFormCliente">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <ul class="nav nav-pills mx-3">
-              <li class="nav-item"> <a href="/cliente" class="active nav-link">Cliente</a> </li>
-              <li class="nav-item"><a routerLink="/endereco" class="nav-link" routerLinkActive="active">Endereço</a>
+              <li class="nav-item"> <a class="active nav-link">Cliente</a> </li>
+              <li class="nav-item"><a class="nav-link" routerLinkActive="active">Endereço</a>
               </li>
-              <li class="nav-item"><a routerLink="/financeiro" class="nav-link" routerLinkActive="active">Financeiro</a>
+              <li class="nav-item"><a class="nav-link" routerLinkActive="active">Financeiro</a>
               </li>
             </ul>
           </div>
@@ -29,13 +30,13 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <div class="form-group"><label>Código:</label><input type="text" class="form-control" placeholder=""></div>
+            <div class="form-group"><label>Código:</label><input type="text" class="form-control" placeholder="001"></div>
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>CNPJ/CPF:*</label><input type="text" class="form-control"></div>
+            <div class="form-group"><label>CNPJ/CPF:*</label><input type="text" class="form-control" formControlName="cnpjcpf"></div>
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>Situação:</label><input type="text" class="form-control"></div>
+            <div class="form-group"><label>Situação:</label><input type="text" class="form-control" placeholder="Ativa"></div>
           </div>
           <div class="col-md-3">
             <div class="form-group"><label>Tipo:</label>
@@ -52,14 +53,141 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <div class="form-group"><label>Razão Social/Nome:*</label><input type="text" class="form-control"></div>
+            <div class="form-group"><label>Razão Social/Nome:*</label><input type="text" class="form-control" formControlName="razaoSocial"></div>
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>Nome Fantasia:*</label><input type="text" class="form-control"></div>
+            <div class="form-group"><label>Nome Fantasia:*</label><input type="text" class="form-control" formControlName="nomeFantasia"></div>
           </div>
         </div>
       </div>
 
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group"><label>CEP:</label><input type="text" class="form-control" placeholder="50000-000"></div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group"><label>Endereço:</label><input type="text" class="form-control" placeholder="Av. Marquês de Olinda"></div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group"><label>Número:</label><input type="number" class="form-control" placeholder="126"></div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group"><label>Complemento:</label><input type="text" class="form-control" placeholder="4o andar"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group"><label>Bairro:</label><input type="text" class="form-control" placeholder="Bairro do Recife"></div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group"><label>Cidade:</label><input type="text" class="form-control" placeholder="Recife"></div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group"><label>UF:</label><input type="text" class="form-control" placeholder="PE"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Segmento: *</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Brasil</option>
+                <option>Japão</option>
+                <option>China</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label></label>
+              <p><input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">Cobrança</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Segmento: *</label>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>100-Atacadista</option>
+                    <option>100-Atacadista</option>
+                    <option>100-Atacadista</option>
+                    <option>100-Atacadista</option>
+                    <option>100-Atacadista</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group"><label>Site: *</label><input type="text" class="form-control"
+                    placeholder="http://www.informata.com.br"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Default checkbox
+            </label>
+          </div>
+          <div class="col-md-3">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Default checkbox
+            </label>
+          </div>
+          <div class="col-md-3">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Default checkbox
+            </label>
+          </div>
+          <div class="col-md-3">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Default checkbox
+            </label>
+          </div>
+        </div>
+      </div> -->
+      <p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2"> <button type="submit" class="btn btn-primary" [disabled]="!clienteForm.valid">Salvar</button></div>
+            <!-- <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div> -->
+            <div class="col-md-2"></div>
+            <div class="col-md-2"><a (click)="clienteProximo()" class="btn btn-primary" >Próximo <i
+                  class="fa fa-fw fa-arrow-right"></i> </a></div>
+          </div>
+        </div>
+    </div>
+    <div class="py-5" *ngIf="editFormEndereco">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav nav-pills mx-3">
+              <li class="nav-item"><a class="nav-link" routerLinkActive="active">Cliente</a></li>
+              <li class="nav-item"><a class="active nav-link" routerLinkActive="active">Endereço</a></li>
+              <li class="nav-item"><a class="nav-link" routerLinkActive="active">Financeiro</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div><br>
       <div class="container">
         <div class="row">
           <div class="col-md-3">
@@ -86,6 +214,58 @@
           </div>
           <div class="col-md-3">
             <div class="form-group"><label>UF:</label><input type="text" class="form-control"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group"><label>Ponto de Referência: *</label><input type="text" class="form-control"
+                    placeholder=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-primary" [disabled]="!clienteForm.valid">Salvar</button></div>
+            <!-- <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div> -->
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+              <a (click)="enderecoAnterior()" class="btn btn-primary" routerLinkActive="active">Anterior <i
+                  class="fa fa-fw fa-arrow-left"></i> </a></div>
+            <div class="col-md-2"><a (click)="enderecoProximo()" class="btn btn-primary" routerLinkActive="active">Próximo
+                <i class="fa fa-fw fa-arrow-right"></i> </a></div>
+          </div>
+        </div>
+    </div>
+
+    <div class="py-5" *ngIf="editFormFinanceiro">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav nav-pills mx-3">
+              <li class="nav-item"><a class="nav-link" routerLinkActive="active">Cliente</a></li>
+              <li class="nav-item"><a class="nav-link" routerLinkActive="active">Endereço</a>
+              </li>
+              <li class="nav-item"><a class="active nav-link" routerLinkActive="active">Financeiro</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div><label>Razão Social: <p><b>{{ this.clienteForm.get('razaoSocial').value }}</b></label></div>  
+            <div><label>Nome Fantasia: <p><b>{{ this.clienteForm.get('nomeFantasia').value }}</b></label></div>
+            <div><label>CPF/CNPJ: <p><b>{{ this.clienteForm.get('cnpjcpf').value }}</b></label></div>
           </div>
         </div>
       </div>
@@ -167,18 +347,16 @@
         <div class="container">
           <div class="row">
             <div class="col-md-2"></div>
-            <!-- <div class="col-md-2"><a class="btn btn-primary" href="#">Salvar</a></div> -->
-            <!-- <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div> -->
+            <div class="col-md-2"><button type="submit" class="btn btn-primary" [disabled]="!clienteForm.valid">Salvar</button></div>
+            <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div>
             <div class="col-md-2"></div>
-            <div class="col-md-2"><a routerLink="/endereco" class="btn btn-primary" routerLinkActive="active">Próximo <i
-                  class="fa fa-fw fa-arrow-right"></i> </a></div>
+            <div class="col-md-2"><a (click)="financeiroAnterior()" class="btn btn-primary" routerLinkActive="active">Anterior
+                <i class="fa fa-fw fa-arrow-left"></i> </a></div>
           </div>
         </div>
     </div>
+
   </form>
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
