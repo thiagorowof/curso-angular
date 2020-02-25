@@ -12,7 +12,7 @@
   <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
     <div class="card-header">Sistema de Cadastro de Alguma Coisa - <a routerLink="/login"
         routerLinkActive="active">[sair]</a>
-        </div>
+    </div>
     <div class="py-5" *ngIf="editFormCliente">
       <div class="container">
         <div class="row">
@@ -23,6 +23,7 @@
               </li>
               <li class="nav-item"><a class="nav-link" routerLinkActive="active">Financeiro</a>
               </li>
+              <div class="" *ngIf="!clienteForm.valid"><font color="red"> * Campos Obrigatórios não preenchidos...</font></div>
             </ul>
           </div>
         </div>
@@ -30,13 +31,22 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <div class="form-group"><label>Código:</label><input type="text" class="form-control" placeholder="001"></div>
+            <div class="form-group"><label>Código:</label><input type="text" class="form-control" placeholder="001">
+            </div>
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>CNPJ/CPF:*</label><input type="text" class="form-control" formControlName="cnpjcpf"></div>
+            <div class="form-group"><label>CNPJ/CPF:*</label>
+              <input type="text" class="form-control" formControlName="cnpjcpf" #cnpjcpf>
+            </div>
+            <!-- <div *ngIf="!this.clienteForm.get('cnpjcpf').value" class="alert alert-danger">obrigatório!</div> -->
+            <!-- {{ this.clienteForm.get('cnpjcpf').value }} -->
+            <!-- verificar estado atual do campo ex. form-control ng-dirty ng-touched ng-invalid -->
+            <!-- {{ cnpjcpf.className }} -->
+
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>Situação:</label><input type="text" class="form-control" placeholder="Ativa"></div>
+            <div class="form-group"><label>Situação:</label><input type="text" class="form-control" placeholder="Ativa">
+            </div>
           </div>
           <div class="col-md-3">
             <div class="form-group"><label>Tipo:</label>
@@ -53,10 +63,15 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <div class="form-group"><label>Razão Social/Nome:*</label><input type="text" class="form-control" formControlName="razaoSocial"></div>
+            <div class="form-group"><label>Razão Social/Nome:*</label><input type="text" class="form-control"
+                formControlName="razaoSocial" #razaoSocial></div>
+                <!-- <div *ngIf="!this.clienteForm.get('razaoSocial').value" class="alert alert-danger">obrigatório!</div> -->
           </div>
+
           <div class="col-md-3">
-            <div class="form-group"><label>Nome Fantasia:*</label><input type="text" class="form-control" formControlName="nomeFantasia"></div>
+            <div class="form-group"><label>Nome Fantasia:*</label><input type="text" class="form-control"
+                formControlName="nomeFantasia" #nomeFantasia></div>
+                <!-- <div *ngIf="!this.clienteForm.get('nomeFantasia').value" class="alert alert-danger">obrigatório!</div> -->
           </div>
         </div>
       </div>
@@ -64,26 +79,32 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <div class="form-group"><label>CEP:</label><input type="text" class="form-control" placeholder="50000-000"></div>
+            <div class="form-group"><label>CEP:</label><input type="text" class="form-control" placeholder="50000-000">
+            </div>
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>Endereço:</label><input type="text" class="form-control" placeholder="Av. Marquês de Olinda"></div>
+            <div class="form-group"><label>Endereço:</label><input type="text" class="form-control"
+                placeholder="Av. Marquês de Olinda"></div>
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>Número:</label><input type="number" class="form-control" placeholder="126"></div>
+            <div class="form-group"><label>Número:</label><input type="number" class="form-control" placeholder="126">
+            </div>
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>Complemento:</label><input type="text" class="form-control" placeholder="4o andar"></div>
+            <div class="form-group"><label>Complemento:</label><input type="text" class="form-control"
+                placeholder="4o andar"></div>
           </div>
         </div>
       </div>
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <div class="form-group"><label>Bairro:</label><input type="text" class="form-control" placeholder="Bairro do Recife"></div>
+            <div class="form-group"><label>Bairro:</label><input type="text" class="form-control"
+                placeholder="Bairro do Recife"></div>
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>Cidade:</label><input type="text" class="form-control" placeholder="Recife"></div>
+            <div class="form-group"><label>Cidade:</label><input type="text" class="form-control" placeholder="Recife">
+            </div>
           </div>
           <div class="col-md-3">
             <div class="form-group"><label>UF:</label><input type="text" class="form-control" placeholder="PE"></div>
@@ -167,11 +188,13 @@
         <div class="container">
           <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-2"> <button type="submit" class="btn btn-primary" [disabled]="!clienteForm.valid">Salvar</button></div>
-            <!-- <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div> -->
+            <div class="col-md-2"> <button type="submit" class="btn btn-primary"
+                [disabled]="!clienteForm.valid">Salvar</button></div>
+            <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div>
             <div class="col-md-2"></div>
-            <div class="col-md-2"><a (click)="clienteProximo()" class="btn btn-primary" >Próximo <i
+            <div class="col-md-2"><a (click)="clienteProximo()" class="btn btn-primary">Próximo <i
                   class="fa fa-fw fa-arrow-right"></i> </a></div>
+          
           </div>
         </div>
     </div>
@@ -184,6 +207,7 @@
               <li class="nav-item"><a class="active nav-link" routerLinkActive="active">Endereço</a></li>
               <li class="nav-item"><a class="nav-link" routerLinkActive="active">Financeiro</a>
               </li>
+              <div class="" *ngIf="!clienteForm.valid"><font color="red">* Campos Obrigatórios não preenchidos...</font></div>
             </ul>
           </div>
         </div>
@@ -236,11 +260,12 @@
             <div class="col-md-2">
               <button type="submit" class="btn btn-primary" [disabled]="!clienteForm.valid">Salvar</button></div>
             <!-- <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div> -->
-            <div class="col-md-2"></div>
+            <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div>
             <div class="col-md-2">
               <a (click)="enderecoAnterior()" class="btn btn-primary" routerLinkActive="active">Anterior <i
                   class="fa fa-fw fa-arrow-left"></i> </a></div>
-            <div class="col-md-2"><a (click)="enderecoProximo()" class="btn btn-primary" routerLinkActive="active">Próximo
+            <div class="col-md-2"><a (click)="enderecoProximo()" class="btn btn-primary"
+                routerLinkActive="active">Próximo
                 <i class="fa fa-fw fa-arrow-right"></i> </a></div>
           </div>
         </div>
@@ -255,6 +280,7 @@
               <li class="nav-item"><a class="nav-link" routerLinkActive="active">Endereço</a>
               </li>
               <li class="nav-item"><a class="active nav-link" routerLinkActive="active">Financeiro</a></li>
+              <div class="" *ngIf="!clienteForm.valid"><font color="red">* Campos Obrigatórios não preenchidos...</font></div>
             </ul>
           </div>
         </div>
@@ -263,7 +289,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <div><label>Razão Social: <p><b>{{ this.clienteForm.get('razaoSocial').value }}</b></label></div>  
+            <div><label>Razão Social: <p><b>{{ this.clienteForm.get('razaoSocial').value }}</b></label></div>
             <div><label>Nome Fantasia: <p><b>{{ this.clienteForm.get('nomeFantasia').value }}</b></label></div>
             <div><label>CPF/CNPJ: <p><b>{{ this.clienteForm.get('cnpjcpf').value }}</b></label></div>
           </div>
@@ -347,11 +373,13 @@
         <div class="container">
           <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-2"><button type="submit" class="btn btn-primary" [disabled]="!clienteForm.valid">Salvar</button></div>
+            <div class="col-md-2"><button type="submit" class="btn btn-primary"
+                [disabled]="!clienteForm.valid">Salvar</button></div>
             <div class="col-md-2"><a class="btn btn-secondary" href="#">Cancelar</a></div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2"><a (click)="financeiroAnterior()" class="btn btn-primary" routerLinkActive="active">Anterior
-                <i class="fa fa-fw fa-arrow-left"></i> </a></div>
+            <div class="col-md-2"><a (click)="financeiroAnterior()" class="btn btn-primary"
+                routerLinkActive="active">Anterior
+                <i class="fa fa-fw fa-arrow-left"></i> </a></div> 
+            <div class="col-md-2"></div>     
           </div>
         </div>
     </div>
