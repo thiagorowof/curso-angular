@@ -19,9 +19,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   editFormFinanceiro = false
  
   clienteForm = new FormGroup({
+    codCliente: new FormControl('0001'),
     cnpjcpf: new FormControl('', Validators.required),
     razaoSocial: new FormControl('', Validators.required),
     nomeFantasia: new FormControl('', Validators.required),
+    pontoDeReferencia: new FormControl('', Validators.required),
   });
 
   constructor() { }

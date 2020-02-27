@@ -31,12 +31,19 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <div class="form-group"><label>Código:</label><input type="text" class="form-control" placeholder="001">
+            <div class="form-group"><label>Código:</label><input type="text" class="form-control" readonly formControlName="codCliente">
+            </div>
+          </div>
+          <div class="col-md-1">
+            <div class="form-group">
+              <label></label>
+              <p><input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">Estrangeiro?</label>
             </div>
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>CNPJ/CPF:*</label>
-              <input type="text" class="form-control" formControlName="cnpjcpf" #cnpjcpf>
+            <div class="form-group"><label class="obrigatorio">CNPJ/CPF:</label>
+              <input type="number" class="form-control" formControlName="cnpjcpf" #cnpjcpf>
             </div>
             <!-- <div *ngIf="!this.clienteForm.get('cnpjcpf').value" class="alert alert-danger">obrigatório!</div> -->
             <!-- {{ this.clienteForm.get('cnpjcpf').value }} -->
@@ -45,7 +52,11 @@
 
           </div>
           <div class="col-md-3">
-            <div class="form-group"><label>Situação:</label><input type="text" class="form-control" placeholder="Ativa">
+            <div class="form-group"><label>Situação:</label><input type="text" readonly class="form-control" placeholder="Ativa">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group"><label>Pesquisado em:</label><input type="text" readonly class="form-control" placeholder="14/02/2020">
             </div>
           </div>
           <div class="col-md-3">
@@ -62,14 +73,14 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
-            <div class="form-group"><label>Razão Social/Nome:*</label><input type="text" class="form-control"
+          <div class="col-md-6">
+            <div class="form-group"><label class="obrigatorio">Razão Social/Nome:</label><input type="text" class="form-control"
                 formControlName="razaoSocial" #razaoSocial></div>
                 <!-- <div *ngIf="!this.clienteForm.get('razaoSocial').value" class="alert alert-danger">obrigatório!</div> -->
           </div>
 
-          <div class="col-md-3">
-            <div class="form-group"><label>Nome Fantasia:*</label><input type="text" class="form-control"
+          <div class="col-md-6">
+            <div class="form-group"><label class="obrigatorio">Nome Fantasia:</label><input type="text" class="form-control"
                 formControlName="nomeFantasia" #nomeFantasia></div>
                 <!-- <div *ngIf="!this.clienteForm.get('nomeFantasia').value" class="alert alert-danger">obrigatório!</div> -->
           </div>
@@ -115,7 +126,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="form-group">
-              <label>Segmento: *</label>
+              <label>Pais:</label>
               <select class="form-control" id="exampleFormControlSelect1">
                 <option>Brasil</option>
                 <option>Japão</option>
@@ -134,11 +145,33 @@
       </div>
       <div class="container">
         <div class="row">
+          <div class="col-md-3">
+            <div class="form-group"><label>Nascimento:</label><input type="date" class="form-control" placeholder="">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group"><label>RG:</label><input type="number" class="form-control"
+                placeholder="27548930-9"></div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group"><label>Inscrição Estadual:</label><input type="number" class="form-control" placeholder="isento">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group"><label>Inscrição Municipal:</label>
+              <input type="text" class="form-control"
+                placeholder="isento">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Segmento: *</label>
+                  <label>Segmento:</label>
                   <select class="form-control" id="exampleFormControlSelect1">
                     <option>100-Atacadista</option>
                     <option>100-Atacadista</option>
@@ -149,7 +182,7 @@
                 </div>
               </div>
               <div class="col-md-8">
-                <div class="form-group"><label>Site: *</label><input type="text" class="form-control"
+                <div class="form-group"><label>Site:</label><input type="text" class="form-control"
                     placeholder="http://www.informata.com.br"></div>
               </div>
             </div>
@@ -215,6 +248,14 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
+            <div><label>CPF/CNPJ: <p><b>{{ this.clienteForm.get('cnpjcpf').value }}</b></label></div>
+            <div><label>CLIENTE: <p><b>{{ this.clienteForm.get('codCliente').value }}</b></label></div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
             <div class="form-group"><label>CEP:</label><input type="text" class="form-control" placeholder=""></div>
           </div>
           <div class="col-md-3">
@@ -246,7 +287,7 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-8">
-                <div class="form-group"><label>Ponto de Referência: *</label><input type="text" class="form-control"
+                <div class="form-group"><label class="obrigatorio">Ponto de Referência:</label><input type="text" formControlName="pontoDeReferencia" class="form-control"
                     placeholder=""></div>
               </div>
             </div>
