@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateFormComponent implements OnInit {
 
+  codigo = '';
   
  usuario: any = {
    nome: null,
